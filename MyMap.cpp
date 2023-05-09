@@ -9,7 +9,7 @@ Map::~Map()
 {
     item._t.~RBTree();
 }
-//==null找不到；==99999为空；
+
 bool Map::insert(const string& key, int value) {
     if(item.find(key)!=nullptr&&item[key]!=99999)return false;
     else if(item.find(key)!=nullptr&&item[key]==99999)
@@ -32,7 +32,7 @@ bool Map::find(const string& key) {
 }
 
 bool Map::erase(const string& key) {
-    if(item.find(key)!=nullptr&&item[key]!=99999)
+    if(this->find(key)==true)
     {
         size_--;
         item[key]=99999;
@@ -45,32 +45,26 @@ bool Map::erase(const string& key) {
 }
 
 int & Map::operator[](const string &key) {
-    if(item.find(key)!=nullptr&&item[key]!=99999)
-    {
-        return item[key];
-    }
-    else if(item.find(key)!=nullptr&&item[key]==99999)
+    if(item.find(key)!=nullptr&&item[key]==99999)
     {
         size_++;
         item[key]=0;
-        return item[key];
     }
     else
     {
         size_++;
         item.insert(make_pair(key,0));
-        return item[key];
     }
-    
+    return item[key];
 }
 
-int Map::size() const { return size_; }
-
-
+int Map::size() const
+{
+    return size_;
+}
 
 int main()
 {
-    
 Map id2grade;
 // 插入两个键值对
 id2grade.insert("202200001", 99);
