@@ -49,8 +49,8 @@ private:
     sk::mymap<string,int> item;
     int size_;
 public:
-    Map(); // 构造函数，构造一个空映射表，初始化数据成员
-   ~Map(); // 析构函数，释放申请的内存空间
+    Map();
+   ~Map();
 
    bool insert(const string& key, int value);
 
