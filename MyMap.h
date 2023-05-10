@@ -1,6 +1,4 @@
-#include<list>
 #include<string>
-#include<string.h>
 #include "RBTree.h"
 namespace sk
 {
